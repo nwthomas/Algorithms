@@ -15,11 +15,10 @@ def eating_cookies(n):
             return 1
         elif num < 0:
             return 0
-        elif n not in cache:
+        elif num not in cache:
             total = eat(num - 1) + eat(num - 2) + eat(num - 3)
-        cache[num] = total
+            cache[num] = total
         return cache[num]
-
     return eat(n)
 
 
@@ -30,10 +29,3 @@ if __name__ == "__main__":
             ways=eating_cookies(num_cookies), n=num_cookies))
     else:
         print('Usage: eating_cookies.py [num_cookies]')
-
-"""
-1. Should recursively call function
-2. If it's less than zero, return 0
-3. It's it's 0, return 1
-4. Cache
-"""
